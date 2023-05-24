@@ -20,6 +20,8 @@ The project also has a button to export the top10 list to excel-file.
 
 Sample created in version 1.12.760.37
 
+--> It's possible to get much more detailed information from the events. Check the EventListener.js for the comments that I made to help you find out how. 
+
 ![enter image description here](https://user-images.githubusercontent.com/75740551/240608024-05864171-5f8a-4ab5-b6e4-817b632b3e84.png)
  
 Sources used:
