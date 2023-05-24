@@ -1,5 +1,148 @@
-<div id="Desktop" data-tchmi-type="TcHmi.Controls.System.TcHmiView" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width-mode="Content" data-tchmi-min-width="100" data-tchmi-min-width-unit="%" data-tchmi-height-mode="Content" data-tchmi-min-height="100" data-tchmi-min-height-unit="%">
-  <div id="ViewDesktopBeckhoffLogo" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-src="Images/Beckhoff_Logo.svg" data-tchmi-left="20" data-tchmi-top="20" data-tchmi-width="194" data-tchmi-height="57">
+<div id="Desktop" data-tchmi-type="TcHmi.Controls.System.TcHmiView" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width-mode="Content" data-tchmi-min-width="100" data-tchmi-min-width-unit="%" data-tchmi-height-mode="Content" data-tchmi-min-height="100" data-tchmi-min-height-unit="%" data-tchmi-creator-viewport-width="1920" data-tchmi-creator-viewport-height="1080">
+  <div id="ViewDesktopBeckhoffLogo" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-src="Images/Beckhoff_Logo.svg" data-tchmi-left="10" data-tchmi-top="10" data-tchmi-width="284" data-tchmi-height="97">
 
   </div>
+<div id="TcHmiEventGrid" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEventGrid" data-tchmi-height="400" data-tchmi-height-unit="px" data-tchmi-left="631" data-tchmi-left-unit="px" data-tchmi-server-interval="1000" data-tchmi-show-menu-bar="true" data-tchmi-top="191" data-tchmi-top-unit="px" data-tchmi-width="630" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-filter" type="application/json">
+[
+  {
+    "path": "domain",
+    "comparator": "==",
+    "value": "TcHmiEventLogger"
+  },
+  {
+    "logic": "OR"
+  },
+  {
+    "path": "domain",
+    "comparator": "==",
+    "value": "TcHmiAlarm"
+  }
+]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-columns" type="application/json">
+[
+  {
+    "columnName": "type"
+  },
+  {
+    "columnName": "severity"
+  },
+  {
+    "columnName": "timeAndDateRaised"
+  },
+  {
+    "columnName": "text",
+    "width": 1,
+    "widthUnit": "factor"
+  }
+]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-sorting" type="application/json">
+[
+  {
+    "name": "timeRaised",
+    "order": "Descending"
+  }
+]
+</script>
+
+</div>
+<div id="TcHmiDatagrid" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiDatagrid" data-tchmi-height="400" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="191" data-tchmi-top-unit="px" data-tchmi-width="611" data-tchmi-width-unit="px" data-tchmi-src-data="%i%TopEvents%/i%">
+
+
+<script data-tchmi-target-attribute="data-tchmi-cell-content-padding" type="application/json">
+{
+  "left": 3,
+  "leftUnit": "px",
+  "right": 3,
+  "rightUnit": "px",
+  "top": 0,
+  "topUnit": "px",
+  "bottom": 0,
+  "bottomUnit": "px"
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-src-column" type="application/json">
+[
+  {
+    "name": "count",
+    "label": "Count",
+    "control": "TextBlock",
+    "width": 70,
+    "widthUnit": "px",
+    "resize": true,
+    "sortable": true,
+    "minWidth": 70,
+    "minWidthUnit": "px",
+    "editable": false,
+    "horizontalAlignment": "Center",
+    "verticalAlignment": "Center",
+    "headerHorizontalAlignment": "Center",
+    "headerVerticalAlignment": "Center",
+    "ignoreEscapeSequences": false,
+    "autoFocusOut": true,
+    "autoSelectText": false
+  },
+  {
+    "name": "eventText",
+    "label": "EventText",
+    "control": "TextBlock",
+    "width": 500,
+    "widthUnit": "px",
+    "resize": true,
+    "sortable": true,
+    "minWidth": 500,
+    "minWidthUnit": "px",
+    "editable": false,
+    "horizontalAlignment": "Left",
+    "verticalAlignment": "Center",
+    "headerHorizontalAlignment": "Center",
+    "headerVerticalAlignment": "Center",
+    "ignoreEscapeSequences": false,
+    "autoFocusOut": true,
+    "autoSelectText": false
+  }
+]
+</script>
+</div>
+<div id="TcHmiButton" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="39" data-tchmi-height-unit="px" data-tchmi-left="521" data-tchmi-left-unit="px" data-tchmi-text="Export to Excel" data-tchmi-top="142" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton.onPressed",
+    "actions": [
+      {
+        "objectType": "Function",
+        "active": true,
+        "fn": "TcHmi.Functions.TcHmiEventLoggerTopList.ExportListToExcel",
+        "fnParams": [
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "Top10"
+          },
+          {
+            "objectType": "StaticValue",
+            "valueType": "tchmi:general#/definitions/String",
+            "value": "EventTop10List"
+          },
+          {
+            "objectType": "Symbol",
+            "valueType": "tchmi:general#/definitions/Array",
+            "symbolExpression": "%i%TopEvents%/i%"
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiTextblock" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="39" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Event - Top10 List" data-tchmi-top="142" data-tchmi-top-unit="px" data-tchmi-width="303" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="20">
+</div>
 </div>

@@ -50,6 +50,26 @@
       "name": "Fonts/Fonts.css",
       "description": "",
       "type": "Stylesheet"
+    },
+    {
+      "name": "JS/EventListener.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS/Excel/FileSaver.min.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS/Excel/exceljs.min.js",
+      "description": "",
+      "type": "JavaScript"
+    },
+    {
+      "name": "JS/Excel/ExportListToExcel.js",
+      "description": "",
+      "type": "JavaScript"
     }
   ],
   "userControls": [],
@@ -62,9 +82,19 @@
       "preloadBindings": false
     }
   ],
-  "userFunctions": [],
+  "userFunctions": [
+    {
+      "url": "JS/Excel/ExportListToExcel.js"
+    }
+  ],
   "symbols": {
-    "internal": {},
+    "internal": {
+      "TopEvents": {
+        "type": "tchmi:general#/definitions/Array",
+        "persist": false,
+        "readonly": false
+      }
+    },
     "themedResources": {}
   },
   "trigger": [],

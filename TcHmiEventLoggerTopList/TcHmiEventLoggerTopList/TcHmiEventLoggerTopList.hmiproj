@@ -31,6 +31,7 @@
     <HmiCommunicationServerAuthPort>13000</HmiCommunicationServerAuthPort>
     <HmiInitial>1.12.760.37</HmiInitial>
     <HmiRecent>1.12.760.37</HmiRecent>
+    <HmiServerNodeAdvancedView>False</HmiServerNodeAdvancedView>
   </PropertyGroup>
   <PropertyGroup>
     <TwinCATHmi_Tasks>$(TcHmiDirectory)\MSBuild\Beckhoff.TwinCAT.HMI.tasks</TwinCATHmi_Tasks>
@@ -115,8 +116,11 @@
     <Folder Include="Imports" />
     <Folder Include="Imports\Images" />
     <Folder Include="Imports\Videos" />
+    <Folder Include="JS\Excel" />
     <Folder Include="KeyboardLayouts\" />
     <Folder Include="Localization" />
+    <Folder Include="JS" />
+    <Folder Include="Server\TcHmiEventLogger" />
     <Folder Include="Themes" />
     <Folder Include="Themes\Base-Dark\Images\" />
     <Folder Include="Themes\Base\" />
@@ -127,6 +131,31 @@
     <Folder Include="Properties" />
     <Content Include=".eslintrc.json">
       <Visible>false</Visible>
+    </Content>
+    <Content Include="JS\EventListener.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="JS\Excel\exceljs.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="JS\Excel\ExportListToExcel.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>JS\Excel\ExportListToExcel.js</DependentUpon>
+    </Content>
+    <Content Include="JS\Excel\ExportListToExcel.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="JS\Excel\FileSaver.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiEventLogger\TcHmiEventLogger.Config.default.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiEventLogger\TcHmiEventLogger.Config.remote.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Server\TcHmiEventLogger\TcHmiEventLogger.Storage.json">
+      <SubType>Content</SubType>
     </Content>
     <Content Include="Server\TcHmiLua\TcHmiLua.Config.default.json">
       <SubType>Content</SubType>
@@ -153,6 +182,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Server\TcHmiUserManagement\TcHmiUserManagement.Storage.json">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Themes\Base\Images\Background.png">
       <SubType>Content</SubType>
     </Content>
     <Content Include="tsconfig.tpl.json">
@@ -239,10 +271,6 @@
       <Visible>true</Visible>
     </Content>
     <Content Include="Themes\Base\Images\Splash-800x600.png">
-      <SubType>Content</SubType>
-      <Visible>true</Visible>
-    </Content>
-    <Content Include="Themes\Base\Images\Background.png">
       <SubType>Content</SubType>
       <Visible>true</Visible>
     </Content>
